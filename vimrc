@@ -27,7 +27,6 @@ if has("vms")
 endif
 set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set gdefault        " regex /g by default
 
@@ -37,8 +36,8 @@ set gdefault        " regex /g by default
 " Don't use Ex mode, use Q for formatting
 map Q gqip
 
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
+" This is an alternative that also works in block mode, but the deleted text is
+" lost and it only works for putting the current register.
 "vnoremap p "_dp
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -115,9 +114,6 @@ set background=dark
 filetype indent on
 set wildignore=*.o,*.obj,*.bak,*.exe
 
-set tags=~/.vim/tags/tv_tags,./tags
-map <F6> :b#<CR>
-
 " run file with PHP CLI (CTRL-M)
 "autocmd FileType php nnoremap <C-M> :w!<CR>:!/usr/bin/php %<CR>
 
@@ -127,10 +123,6 @@ autocmd FileType php nnoremap <C-L> :!/usr/bin/php -l %<CR>
 "inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 autocmd FileType php nnoremap <C-P> :call PhpDocSingle()<CR>
 autocmd FileType php vnoremap <C-P> :call PhpDocRange()<CR> 
-
-"sessions
-au VimLeave * exe 'if exists("g:cmd") && g:cmd == "gvims" | if strlen(v:this_session) | exe "wviminfo! " . v:this_session . ".viminfo" | else | exe "wviminfo! " . "~/.vim/session/" . g:myfilename . ".session.viminfo" | endif | endif '
-au VimLeave * exe 'if exists("g:cmd") && g:cmd == "gvims" | if strlen(v:this_session) | exe "mksession! " . v:this_session | else | exe "mksession! " . "~/.vim/session/" . g:myfilename . ".session" | endif | endif'
 
 "cursor color
 if &term =~ "xterm\\|rxvt"
@@ -146,10 +138,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" tab navigation
-nnoremap <C-left> :tabprevious<CR>
-nnoremap <C-right> :tabNext<cr>
 
 " scratch
 nnoremap <leader><tab> :Sscratch<CR>
